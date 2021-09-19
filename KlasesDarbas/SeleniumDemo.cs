@@ -98,11 +98,11 @@ namespace VCSTestingRuduo.KlasesDarbas
         {
             //pakelia browser
             IWebDriver driver = new ChromeDriver();
-            driver.Url = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
-            driver.Manage().Window.Maximize();
+            _driver.Url = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
+            _driver.Manage().Window.Maximize();
 
             //susiranda web elementa
-            IWebElement inputField = driver.FindElement(By.Id("user-message"));
+            IWebElement inputField = _driver.FindElement(By.Id("user-message"));
 
             //testas kuris bus irasomas i inputField
             string myText = "Hello";
@@ -111,28 +111,72 @@ namespace VCSTestingRuduo.KlasesDarbas
             inputField.SendKeys(myText);
 
             //popUt idendifikacija
-            IWebElement popUp = driver.FindElement(By.CssSelector("#at-cv-lightbox-close"));
+            IWebElement popUp = _driver.FindElement(By.CssSelector("#at-cv-lightbox-close"));
             popUp.Click();
 
             //copy -> copy selector = get input > button
-            IWebElement showMessageButton = driver.FindElement(By.CssSelector("#get-input > button"));
+            IWebElement showMessageButton = _driver.FindElement(By.CssSelector("#get-input > button"));
 
             //paspaudzia
             showMessageButton.Click();
 
             //identifikiuojan acualt result elementus
-            IWebElement actualResultText = driver.FindElement(By.Id("display"));
+            IWebElement actualResultText = _driver.FindElement(By.Id("display"));
 
             //tikrinam Expected vs Actual
             // Assert.AreEqual(myText, actualResultText.Text, "Text is different");   vienodi
             Assert.IsTrue(actualResultText.Text.Contains(myText), "Text is different");
 
-            driver.Quit(); //uzdaro narsykle
+            _driver.Quit(); //uzdaro narsykle
 
 
         }
 
+        [Test]
+
+        public static void RadioButtonDemo()
+        {
+            IWebDriver _driver = new ChromeDriver();
+            _driver.Url = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
+            _driver.Manage().Window.Maximize();
 
 
+
+            IWebElement radio = _driver.FindElement(By.XPath("/html/body/div[2]/div/div[2]/div[1]/div[2]/label[2]/input"));
+            radio.Click();
+
+            IWebElement radioButton = _driver.FindElement(By.Id("buttoncheck"));
+            radioButton.Click();
+
+            IWebElement result = _driver.FindElement(By.CssSelector("#easycont > div > div.col-md-6.text-left > div:nth-child(4) > div.panel-body > p.radiobutton"));
+
+            Assert.IsTrue(result.Text.Contains("Radio button 'Female' is checked"), "WRONG");
+
+
+        }
+
+        [Test]
+        public static void GroupRadioButtonsDemo()
+        {
+            string answer = "Sex : Male\r\nAge group: 0 - 5";
+
+            IWebDriver _driver = new ChromeDriver();
+            _driver.Url = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
+            _driver.Manage().Window.Maximize();
+
+            IWebElement radio1 = _driver.FindElement(By.XPath("/html/body/div[2]/div/div[2]/div[2]/div[2]/div[1]/label[1]/input"));
+            radio1.Click();
+
+            IWebElement radio2 = _driver.FindElement(By.XPath("/html/body/div[2]/div/div[2]/div[2]/div[2]/div[2]/label[1]/input"));
+            radio2.Click();
+
+            IWebElement GroupradioButton = _driver.FindElement(By.CssSelector("#easycont > div > div.col-md-6.text-left > div:nth-child(5) > div.panel-body > button"));
+            GroupradioButton.Click();
+
+            Assert.That(_driver.FindElement(By.CssSelector(".groupradiobutton")).Text, Is.EqualTo(answer));
+
+
+
+        }
     }
 }
