@@ -2,23 +2,24 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo
+namespace VCSTestingRuduo.NamuDarbai
 {
-    public class NamuDarbas2
+    class NamuDarbas2
     {
         public static IWebDriver _driver;
 
         [TearDown] //po visu testu o ne po vieno
-         public void TearDown()
-          {
+        public void TearDown()
+        {
             _driver.Close();
-         }
+        }
 
         [TestCase("Chrome", "Chrome 93 on Windows 10", TestName = "Chrome")]
         [TestCase("FireFox", "Firefox 92 on Windows 10", TestName = "FireFox")]

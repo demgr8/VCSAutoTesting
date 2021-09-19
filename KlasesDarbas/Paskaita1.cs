@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo
+namespace VCSTestingRuduo.KlasesDarbas
 {
-    public class Paskaita1  //testas naudijamos public klases
+    class Paskaita1   //testas naudijamos public klases
     {
         //patikrinti 4 yra lyginis skaicius
 
@@ -26,7 +26,7 @@ namespace VCSRuduo
         public static void TestIfNowIs20()
         {
             DateTime currentTime = DateTime.Now; //priskiriam dabartinis laikas
-            Assert.AreEqual(20, currentTime.Hour, "Now is not 20h");
+            Assert.AreEqual(11, currentTime.Hour, "Now is not 11h");
         }
 
         [Test]
@@ -46,10 +46,6 @@ namespace VCSRuduo
             driver.Manage().Window.Maximize();
             driver.Quit();
         }
-
-
-        
-
 
     }
 }

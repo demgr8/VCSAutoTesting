@@ -1,16 +1,17 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VCSRuduo.Page;
 
-namespace VCSRuduo.Tests
+namespace VCSTestingRuduo.KlasesDarbas.PageObjectPattern
 {
-    public class InputTest
+    class InputTest
     {
         public static IWebDriver _driver;
 
@@ -48,7 +49,7 @@ namespace VCSRuduo.Tests
 
 
         }
-        [TestCase("2", "2", "4",  TestName = "2 + 2 = 4")]
+        [TestCase("2", "2", "4", TestName = "2 + 2 = 4")]
         [TestCase("-5", "3", "-2", TestName = "-5 + 3 = -2")]
         [TestCase("a", "b", "NaN", TestName = "a + b = Nan")]
 

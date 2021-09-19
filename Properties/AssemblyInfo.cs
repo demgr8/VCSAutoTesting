@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VCSRuduo")]
+[assembly: AssemblyTitle("VCSTestingRuduo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VCSRuduo")]
+[assembly: AssemblyProduct("VCSTestingRuduo")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e6382020-355b-4137-907d-8cf69eff0c14")]
+[assembly: Guid("176418e1-c230-48d8-b48f-d3b1f06fb6dd")]
 
 // Version information for an assembly consists of the following four values:
 //

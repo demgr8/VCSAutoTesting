@@ -1,17 +1,17 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo
+namespace VCSTestingRuduo.KlasesDarbas
 {
-    public class Paskaita2
+    class Paskaita2
     {
-
         // Tread.Sleep(5000) = laukia, labai retais atvejais naudojamas
         // webDriver.Manage().Timouts().ImplicitWait = TimeSpan.FromSeconds(10); laukia elemento naudojamas daznai
 
@@ -19,8 +19,8 @@ namespace VCSRuduo
 
         //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); laukia iki tam tikro dalyko pasirodymo
         // wait.Until(e => e.FindElement(By.Id(""). Dislpayed); pvz popUp ID iesko, kad butu pasirdes
-        
-        
+
+
         public static IWebDriver _driver;
 
 
@@ -37,6 +37,7 @@ namespace VCSRuduo
 
             IWebElement popUp = _driver.FindElement(By.CssSelector("#at-cv-lightbox-close"));
             popUp.Click();
+
 
 
         }

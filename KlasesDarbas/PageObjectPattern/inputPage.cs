@@ -1,14 +1,17 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo.Page
+namespace VCSTestingRuduo.KlasesDarbas.PageObjectPattern
 {
-    public class InputPage
+    class InputPage
     {
         public static IWebDriver _driver;
 
@@ -62,7 +65,7 @@ namespace VCSRuduo.Page
             _secondInput.Clear();
             _secondInput.SendKeys(text);
         }
-    
+
         public void ClickGetTotalButton()
         {
             _getTotalButton.Click();
@@ -71,7 +74,5 @@ namespace VCSRuduo.Page
         {
             Assert.AreEqual(result, _actualSumResult.Text, "Result is not correct");
         }
-    
-    
     }
 }

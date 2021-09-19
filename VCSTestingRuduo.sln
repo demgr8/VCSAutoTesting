@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCSRuduo", "VCSRuduo\VCSRuduo.csproj", "{E6382020-355B-4137-907D-8CF69EFF0C14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCSTestingRuduo", "VCSTestingRuduo.csproj", "{176418E1-C230-48D8-B48F-D3B1F06FB6DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6382020-355B-4137-907D-8CF69EFF0C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6382020-355B-4137-907D-8CF69EFF0C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6382020-355B-4137-907D-8CF69EFF0C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6382020-355B-4137-907D-8CF69EFF0C14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{176418E1-C230-48D8-B48F-D3B1F06FB6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{176418E1-C230-48D8-B48F-D3B1F06FB6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{176418E1-C230-48D8-B48F-D3B1F06FB6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{176418E1-C230-48D8-B48F-D3B1F06FB6DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {90AFA055-A85F-4212-B147-9D080BC0C95F}
+		SolutionGuid = {4298A0FF-3D4F-4D60-96CD-FF0FD8DD1E79}
 	EndGlobalSection
 EndGlobal

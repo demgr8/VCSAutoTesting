@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo
+namespace VCSTestingRuduo.KlasesDarbas
 {
-    class VartuTechnikaPaskaitos2Darbas
+    class VartuTechnika
     {
         public static IWebDriver _driver;
 
@@ -48,13 +49,13 @@ namespace VCSRuduo
             inputField2.SendKeys(heigth);
 
             IWebElement autoCheckBox = _driver.FindElement(By.Id("automatika"));
-            if(automatika =! autoCheckBox.Selected)
+            if (automatika = !autoCheckBox.Selected)
             {
                 autoCheckBox.Click();
             }
-            
+
             IWebElement montavimoCheckBox = _driver.FindElement(By.Id("darbai"));
-            if (montavimoDarbai =! montavimoCheckBox.Selected)
+            if (montavimoDarbai = !montavimoCheckBox.Selected)
             {
                 montavimoCheckBox.Click();
             }
@@ -70,7 +71,7 @@ namespace VCSRuduo
             Assert.IsTrue(actualResult.Text.Contains(answ), $"Result is not the same. Expected result is {answ}, but was {actualResult}");
 
         }
-        
-        
+
+
     }
 }

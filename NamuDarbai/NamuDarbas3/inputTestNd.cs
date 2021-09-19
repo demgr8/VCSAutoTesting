@@ -1,17 +1,19 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VCSRuduo.NamuDarbas3.Page;
 
-namespace VCSRuduo.NamuDarbas3.Tests
+namespace VCSTestingRuduo.NamuDarbai.NamuDarbas3
 {
-    public class inputTestNd
+    class InputTestNd
     {
+
         public static IWebDriver _driver;
 
         [OneTimeSetUp]
@@ -33,7 +35,7 @@ namespace VCSRuduo.NamuDarbas3.Tests
 
         public static void TestCheckBoxes()
         {
-            inputPageNd page = new inputPageNd(_driver);
+            InputPageNd page = new InputPageNd(_driver);
 
             page.ClickSingleChexkBoxButton();
             page.VerifySingleCheckBoxResult();

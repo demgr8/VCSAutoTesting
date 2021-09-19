@@ -1,17 +1,18 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo
+namespace VCSTestingRuduo.NamuDarbai
 {
-    public class NamuDarbas1
+    class NamuDarbas1
     {
-
         public static IWebDriver _driver;
 
         [OneTimeSetUp]
@@ -70,14 +71,14 @@ namespace VCSRuduo
 
             Assert.IsTrue(actualResultNumber2.Text.Contains("" + answ), "Number is different");
 
-           
+
         }
-        
+
         [Test]
 
         public static void TwoInputFieldsTest3()
         {
-           
+
             string myText1 = "a";
             string myText2 = "b";
             string answ = "NaN";
@@ -95,7 +96,7 @@ namespace VCSRuduo
 
             Assert.IsTrue(actualResultAnswer.Text.Contains(answ), "Answer is different");
         }
-    
+
 
     }
 }

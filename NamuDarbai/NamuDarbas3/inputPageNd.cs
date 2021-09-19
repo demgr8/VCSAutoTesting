@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -7,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VCSRuduo.NamuDarbas3.Page
+namespace VCSTestingRuduo.NamuDarbai.NamuDarbas3
 {
-    public class inputPageNd
+    class InputPageNd
     {
         public static IWebDriver _driver;
 
@@ -22,7 +24,7 @@ namespace VCSRuduo.NamuDarbas3.Page
         private IWebElement _multipleCheckBoxesButton => _driver.FindElement(By.CssSelector("#check1"));
 
 
-        public inputPageNd(IWebDriver webDriver) 
+        public InputPageNd(IWebDriver webDriver)
         {
             _driver = webDriver;
         }
@@ -31,7 +33,7 @@ namespace VCSRuduo.NamuDarbas3.Page
         {
             _singleCheckBoxClick.Click();
         }
-    
+
         public void VerifySingleCheckBoxResult()
         {
             Assert.IsTrue(_actutalResultSingleCheckBox.Text.Contains("Success - Check box is checked"));
@@ -47,12 +49,12 @@ namespace VCSRuduo.NamuDarbas3.Page
                 }
             }
         }
-        
+
         public void VerifyResultUncheckAll()
         {
             Assert.IsTrue(_multipleCheckBoxesButton.GetAttribute("value").Equals("Uncheck All"));
         }
-      
+
         public void ClickMultipleChexkBoxButton()
         {
 
@@ -72,5 +74,6 @@ namespace VCSRuduo.NamuDarbas3.Page
                 }
             }
         }
+
     }
 }
