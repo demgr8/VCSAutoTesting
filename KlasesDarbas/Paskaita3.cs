@@ -13,5 +13,8 @@ namespace VCSTestingRuduo.KlasesDarbas
     class Paskaita3
     {
         // webDriver.FindElements(By...) = IReadOnlyCollection<IWebElement> per elementus keliauja
+
+        //Selenium Demo
+        //Assert naudojamas patikrinimui
     }
 }
