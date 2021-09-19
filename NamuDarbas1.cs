@@ -73,7 +73,7 @@ namespace VCSRuduo
            
         }
         
-        [Test] //papidyti
+        [Test]
 
         public static void TwoInputFieldsTest3()
         {

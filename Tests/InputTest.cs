@@ -30,10 +30,10 @@ namespace VCSRuduo.Tests
 
         [OneTimeTearDown]
 
-        public void TearDown()
-        {
-            _driver.Close();
-        }
+        //public void TearDown()
+        //{
+        //    _driver.Close();
+        //}
 
         [Test]
 

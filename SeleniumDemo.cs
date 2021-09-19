@@ -81,22 +81,16 @@ namespace VCSRuduo
             _driver.Url = "https://www.seleniumeasy.com/test/basic-checkbox-demo.html";
             _driver.Manage().Window.Maximize();
 
-            IWebElement buttonClick = _driver.FindElement(By.CssSelector("#check1"));
+            IWebElement button = _driver.FindElement(By.CssSelector("#check1"));
 
-            if (buttonClick.GetAttribute("value").Equals("Check All"))
+            if (button.GetAttribute("value").Equals("Check All"))
             {
-                buttonClick.Click();
+                button.Click();
             }
 
           
             
 
         }
-    
-    public static void NewDemo()
-        {
-            //komentaras
-        }
-    
     }
 }

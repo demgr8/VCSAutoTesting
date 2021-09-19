@@ -24,16 +24,16 @@ namespace VCSRuduo
 
         }
 
-       // [OneTimeTearDown]
-       // public void TearDown()
-      //  {
-        //    _driver.Close();
-       // }
-    
-        [TestCase("1", "5", "13", TestName = "RunningPaceCalculator")]
+         [OneTimeTearDown]
+         public void TearDown()
+          {
+            _driver.Close();
+         }
+
+        [TestCase("1", "5", "13", "05", TestName = "RunningPaceCalculator")]
 
 
-        public static void RunningPaceCalculator(string hours, string minutes, string distance)
+        public static void RunningPaceCalculator(string hours, string minutes, string distance, string answer)
         {
             IWebElement inputFieldHours = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(2) > div > label:nth-child(1) > input[type=number]"));
             inputFieldHours.SendKeys(hours);
@@ -45,42 +45,21 @@ namespace VCSRuduo
             inputFieldDistance.SendKeys(distance);
 
 
-
             IWebElement kmDropDown = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(3) > div > span > span > span.selectboxit-text"));
             kmDropDown.Click();
+            _driver.FindElement(By.XPath("/html/body/div[6]/div[5]/div[3]/div/div/div[2]/div/div/div[1]/div/form/div[3]/div/span/ul/li[1]")).Click();
 
-            IWebElement km = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(3) > div > span > ul > li.selectboxit-option.selectboxit-option-first.selectboxit-selected"));
-            km.Click();
+            IWebElement perkmDropDown = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(4) > div > span > span"));
+            perkmDropDown.Click();
+            _driver.FindElement(By.XPath("/html/body/div[6]/div[5]/div[3]/div/div/div[2]/div/div/div[1]/div/form/div[4]/div/span/ul/li[1]")).Click();
 
-                
-            ////    SelectElement selectkm = new SelectElement(kmDropDown);
+            IWebElement calculateButton = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(6) > div > a"));
+            calculateButton.Click();
 
-            ////_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
-            ////selectkm.SelectByText("Kilometers");
-
-            // IWebElement showDropDownButton = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(3) > div > span > span"));
-            // showDropDownButton.Click();
-
-            // SelectElement kmDropDown = new SelectElement(_driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(3) > div > span > span")));
-
-
-
-            //foreach (IWebElement s in kmDropDown.Options)
-            //{
-            //    if(s.Text == "Kilometers")
-            //    {
-            //        s.Click();
-            //    }
-            //}
-
-
-
-
-
+             IWebElement acctualResult = _driver.FindElement(By.CssSelector("#calculator-pace > form > div:nth-child(4) > div > label:nth-child(2) > input[type=number]"));
+             Assert.IsTrue(acctualResult.Text.Contains(answer), "Answer is wrong");
 
         }
-
 
     }
 }

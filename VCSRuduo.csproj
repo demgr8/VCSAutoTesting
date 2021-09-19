@@ -58,6 +58,8 @@
     <Compile Include="NamuDarbas1.cs" />
     <Compile Include="NamuDarbas2.cs" />
     <Compile Include="NamuDarbas2v2.cs" />
+    <Compile Include="NamuDarbas3\Page\inputPageNd.cs" />
+    <Compile Include="NamuDarbas3\Tests\inputTestNd.cs" />
     <Compile Include="Page\InputPage.cs" />
     <Compile Include="Paskaita1.cs" />
     <Compile Include="Paskaita2.cs" />
