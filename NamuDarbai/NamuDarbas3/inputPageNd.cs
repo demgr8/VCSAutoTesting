@@ -50,15 +50,15 @@ namespace VCSTestingRuduo.NamuDarbai.NamuDarbas3
             }
         }
 
-        public void VerifyResultUncheckAll()
+        public void VerifyResultUncheckAll(string text)
         {
-            Assert.IsTrue(_multipleCheckBoxesButton.GetAttribute("value").Equals("Uncheck All"));
+            Assert.IsTrue(_multipleCheckBoxesButton.GetAttribute("value").Equals(text));
         }
 
-        public void ClickMultipleChexkBoxButton()
+        public void ClickMultipleChexkBoxButton(string text)
         {
 
-            if (_multipleCheckBoxesButton.GetAttribute("value").Equals("Uncheck All"))
+            if (_multipleCheckBoxesButton.GetAttribute("value").Equals(text))
             {
                 _multipleCheckBoxesButton.Click();
             }

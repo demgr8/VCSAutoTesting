@@ -31,9 +31,9 @@ namespace VCSTestingRuduo.NamuDarbai.NamuDarbas3
             _driver.Close();
         }
 
-        [Test]
+        [TestCase("Uncheck All", TestName = "Uncheck All")]
 
-        public static void TestCheckBoxes()
+        public static void TestCheckBoxes(string text)
         {
             InputPageNd page = new InputPageNd(_driver);
 
@@ -41,8 +41,8 @@ namespace VCSTestingRuduo.NamuDarbai.NamuDarbas3
             page.VerifySingleCheckBoxResult();
 
             page.SelectAllCheckBoxes();
-            page.VerifyResultUncheckAll();
-            page.ClickMultipleChexkBoxButton();
+            page.VerifyResultUncheckAll(text);
+            page.ClickMultipleChexkBoxButton(text);
             page.VerifyResultIfAllChechBoxesAreUnChecked();
         }
     }

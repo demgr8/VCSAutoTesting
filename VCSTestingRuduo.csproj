@@ -60,12 +60,21 @@
     <Compile Include="KlasesDarbas\Paskaita1.cs" />
     <Compile Include="KlasesDarbas\Paskaita2.cs" />
     <Compile Include="KlasesDarbas\Paskaita3.cs" />
+    <Compile Include="KlasesDarbas\Paskaita4\BasePage.cs" />
+    <Compile Include="KlasesDarbas\Paskaita4\BasicCheckboxDemoPage.cs" />
+    <Compile Include="KlasesDarbas\Paskaita4\DropDownDemoPage.cs" />
+    <Compile Include="KlasesDarbas\Paskaita4\DropDownDemoTest.cs" />
+    <Compile Include="KlasesDarbas\Paskaita4\InputPageNaujas.cs" />
+    <Compile Include="KlasesDarbas\Paskaita4\TeorineInfo.cs" />
     <Compile Include="KlasesDarbas\SeleniumDemo.cs" />
     <Compile Include="KlasesDarbas\VartuTechnika.cs" />
     <Compile Include="NamuDarbai\NamuDarbas1.cs" />
     <Compile Include="NamuDarbai\NamuDarbas2.cs" />
     <Compile Include="NamuDarbai\NamuDarbas3\inputPageNd.cs" />
     <Compile Include="NamuDarbai\NamuDarbas3\inputTestNd.cs" />
+    <Compile Include="NamuDarbai\NamuDarbas4\BasePageNd.cs" />
+    <Compile Include="NamuDarbai\NamuDarbas4\MultiSelectPage.cs" />
+    <Compile Include="NamuDarbai\NamuDarbas4\MultiSelectTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
