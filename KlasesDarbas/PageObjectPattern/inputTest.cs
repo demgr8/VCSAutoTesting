@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VCSTestingRuduo.KlasesDarbas.Paskaita5;
 
 namespace VCSTestingRuduo.KlasesDarbas.PageObjectPattern
 {
-    class InputTest
+    class InputTest : BaseTest
     {
         public static IWebDriver _driver;
 

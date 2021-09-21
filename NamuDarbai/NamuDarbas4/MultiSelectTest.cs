@@ -9,52 +9,35 @@ using System.Threading.Tasks;
 
 namespace VCSTestingRuduo.NamuDarbai.NamuDarbas4
 {
-    class MultiSelectTest
+    class MultiSelectTest : BaseTestNd
     {
-        private static MultiSelectPage _page;
-        private static IWebDriver _driver;
-
-        [OneTimeSetUp]
-        public static void SetUp()
-        {
-            _driver = new ChromeDriver();
-            _driver.Manage().Window.Maximize();
-            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            _page = new MultiSelectPage(_driver);
-        }
-
-        [OneTimeTearDown]
-        public static void TearDown()
-        {
-            _driver.Close();
-        }
 
         [Test]
 
         public void MultiDropDownFirstSelectedTestTwoValues()
         {
-            _page.NavigateToDefaultPage().ClickOnTwoMultiDropDownElementByValue("Washington", "Texas").
+            _multiSelectPage.NavigateToDefaultPage().ClickOnTwoMultiDropDownElementByValue("Washington", "Texas").
                 ClickFirstSelectedButton().VerifyMiultiSelectValueContains("Texas");
         }
 
         [Test]
         public void MultiDropDownGetAllSelectedTestTwoValues()
         {
-            _page.NavigateToDefaultPage().ClickOnTwoMultiDropDownElementByValue("Ohio", "Florida").
+            _multiSelectPage.NavigateToDefaultPage().ClickOnTwoMultiDropDownElementByValue("Ohio", "Florida").
                 GetAllSelectedButton().VerifyMiultiSelectValueContains("Ohio,Florida");
         }
 
         [Test]
         public void MultiDropDownFirstSelectedTestThreeValues()
         {
-            _page.NavigateToDefaultPage().ClickOnThreeMultiDropDownElementByValue ("New Jersey", "Pennsylvania", "Texas").
+            _multiSelectPage.NavigateToDefaultPage().ClickOnThreeMultiDropDownElementByValue ("New Jersey", "Pennsylvania", "Texas").
                 GetAllSelectedButton().VerifyMiultiSelectValueContains("Texas");
         }
 
         [Test]
         public void MultiDropDownGetAllSelectedTestFourValues()
         {
-            _page.NavigateToDefaultPage().ClickOnFourMultiDropDownElementByValue("California", "New Jersey", "Ohio", "Pennsylvania").
+            _multiSelectPage.NavigateToDefaultPage().ClickOnFourMultiDropDownElementByValue("California", "New Jersey", "Ohio", "Pennsylvania").
                 GetAllSelectedButton().VerifyMiultiSelectValueContains("California,New Jersey,Ohio,Pennsylvania");
         }
     }

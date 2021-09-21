@@ -25,6 +25,15 @@ namespace VCSTestingRuduo.KlasesDarbas.Page
 
         private IWebElement _checkAllButton => Driver.FindElement(By.Id("check1"));
 
+        
+        public BasicCheckboxDemoPage NavigateToDefaultPage()   //kiekvienam page turi buti
+        {
+            if(Driver.Url != _pageAddress)
+            {
+                Driver.Url = _pageAddress;
+            }
+            return this;
+        }
         public BasicCheckboxDemoPage(IWebDriver webDriver) : base(webDriver)
         {
 

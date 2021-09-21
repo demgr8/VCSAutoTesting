@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace VCSTestingRuduo.KlasesDarbas.PageObjectPattern
 {
-    class InputPage
+    public class InputPage
     {
         public static IWebDriver _driver;
 
