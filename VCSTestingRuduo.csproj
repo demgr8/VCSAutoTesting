@@ -55,6 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaigiamasisDarbas\ChaiChaiBasePage.cs" />
+    <Compile Include="BaigiamasisDarbas\ChaiChaiBaseTest.cs" />
+    <Compile Include="BaigiamasisDarbas\ChaiChaiPage.cs" />
+    <Compile Include="BaigiamasisDarbas\ChaiChaiTest.cs" />
+    <Compile Include="BaigiamasisDarbas\Drivers\Browsers.cs" />
+    <Compile Include="BaigiamasisDarbas\Drivers\CustomDriver.cs" />
+    <Compile Include="BaigiamasisDarbas\Tools\ScreenShot.cs" />
     <Compile Include="KlasesDarbas\PageObjectPattern\inputPage.cs" />
     <Compile Include="KlasesDarbas\PageObjectPattern\inputTest.cs" />
     <Compile Include="KlasesDarbas\Paskaita1.cs" />
