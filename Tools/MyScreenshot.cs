@@ -11,23 +11,23 @@ using System.Threading.Tasks;
 
 namespace VCSTestingRuduo.Tools
 {
-    public class MyScreenshot
-    {
-        public static void TakeScreenhot(IWebDriver driver)
-        {
-            Screenshot screenshot = driver.TakeScreenshot();
+    //public class MyScreenshot
+   // {
+        //public static void TakeScreenhot(IWebDriver driver)
+       // {
+         //   Screenshot screenshot = driver.TakeScreenshot();
 
-            string projecttDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string screenshotDirectory = Path.GetFullPath(Path.Combine(projecttDirectory, @"..\..\"));
+         //   string projecttDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+          //  string screenshotDirectory = Path.GetFullPath(Path.Combine(projecttDirectory, @"..\..\"));
 
-            string screenshotFolder = Path.Combine(screenshotDirectory, "Screenshot");
-            Directory.CreateDirectory(screenshotFolder);
+          //  string screenshotFolder = Path.Combine(screenshotDirectory, "Screenshot");
+          //  Directory.CreateDirectory(screenshotFolder);
+    //
+           // string screenshotName = $"{TestContext.CurrentContext.Test.Name} {DateTime.Now:HH_mm_ss}.png";
+          //  string screenshotPath = Path.Combine(screenshotFolder, screenshotName);
 
-            string screenshotName = $"{TestContext.CurrentContext.Test.Name} {DateTime.Now:HH_mm_ss}.png";
-            string screenshotPath = Path.Combine(screenshotFolder, screenshotName);
-
-            screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+          //  screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
         }
 
-    }
-}
+   // }
+//}

@@ -18,10 +18,10 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         public static ChaiChaiPage _chaiChaiPage;
 
 
-        [OneTimeSetUp]
+        [SetUp]
         public static void SetUp()
         {
-            Driver = CustomDriver.GetChromeDriver();  //cia gal galima keisti per kokia narsykle paleisti
+            Driver = CustomDriver.GetChromeDriver();
             _chaiChaiPage = new ChaiChaiPage(Driver);
          
         }
@@ -35,10 +35,10 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             }
         }
 
-        [OneTimeTearDown]
-        public static void OneTimeTearDown()
-        {
-            Driver.Close();
-        }
+       // [TearDown]
+       // public static void OneTimeTearDown()
+       // {
+        //    Driver.Close();
+        //}
     }
 }

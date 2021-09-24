@@ -21,6 +21,11 @@ namespace VCSTestingRuduo.KlasesDarbas.Paskaita5.Drivers
             return GetDriver(Browsers.FireFox);
         }
 
+        public static IWebDriver GetIncogdinotChromeDriver()
+        {
+            return GetDriver(Browsers.IncognitoChrome);
+        }
+
         private static IWebDriver GetDriver(Browsers browserName)
         {
             IWebDriver webDriver = null;
@@ -33,6 +38,9 @@ namespace VCSTestingRuduo.KlasesDarbas.Paskaita5.Drivers
                 case Browsers.FireFox:
                     webDriver = new FirefoxDriver();
                     break;
+                case Browsers.IncognitoChrome:
+                    webDriver = GetChromeWithIncognitoOption();
+                    break;
                 default:
                     webDriver = new ChromeDriver();
                     break;
@@ -42,6 +50,18 @@ namespace VCSTestingRuduo.KlasesDarbas.Paskaita5.Drivers
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             return webDriver;
+       
+        
         }
+    
+    private static IWebDriver GetChromeWithIncognitoOption()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("incognito");  //galima viena
+            options.AddArguments("incognito", "start-maximized");  //galima keleta
+            //headless - sukasi nejungiant narsykles 
+            return new ChromeDriver(options);
+        }
+    
     }
 }

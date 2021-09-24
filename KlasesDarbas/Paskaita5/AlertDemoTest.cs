@@ -17,5 +17,21 @@ namespace VCSTestingRuduo.KlasesDarbas.Paskaita5
             _alertDemoPage.NavigateToDefaultPage().ClickFirstAlertButton().AcceptFirsAlert();
 
         }
+    
+        [Test]
+        public static void TestSecondAlert()
+        {
+            _alertDemoPage.NavigateToDefaultPage().ClickSecondAlertButton().
+                DismissSecondAlert().VerifySecondAlertText();
+        }
+    
+    
+        [Test]
+        public static void TestThirdAlert()
+        {
+            _alertDemoPage.NavigateToDefaultPage().ClickThirAlertButton().
+                SendKeysToThirdAlertButton("Penktadienis");// VerifyThirAlertText("Penktadienis");
+                
+        }
     }
 }
