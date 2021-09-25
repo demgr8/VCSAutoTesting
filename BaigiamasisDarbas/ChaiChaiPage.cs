@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
     public class ChaiChaiPage : ChaiChaiBasePage
     {
         private const string _pageAddress = "https://chaichai.lt/";
-
-        private IWebElement _acceptButton => Driver.FindElement(By.Id("cn-accept-cookie"));
 
         private IWebElement _searchButton => Driver.FindElement(By.CssSelector("body > div.page-wrapper > header.main-header > div > div > ul > li:nth-child(3) > a > svg"));
 
@@ -46,7 +45,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         private IWebElement _menuTabSaldumynai => Driver.FindElement(By.CssSelector("body > div.page-wrapper > aside > nav > ul > li:nth-child(4) > a > span > svg"));
 
-        private IWebElement _product1ToBacket => Driver.FindElement(By.CssSelector("body > div.page-wrapper > div.shop-archive > div > div.inner-wrapper > ul > li.card.product-card.wp-sticky.product.type-product.post-543.status-publish.first.instock.product_cat-saldumynai.has-post-thumbnail.taxable.shipping-taxable.purchasable.product-type-simple > div > a > svg"));
+        private IWebElement _product1ToBacket => Driver.FindElement(By.CssSelector(".post-543 .chai-add-to-cart__btn"));
         
         private IWebElement _sum => Driver.FindElement(By.CssSelector("strong bdi"));
 
@@ -55,7 +54,19 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         private IWebElement _removeButton => Driver.FindElement(By.CssSelector(".js-qa-minus"));
 
         private IWebElement _updateBasketSum => Driver.FindElement(By.Name("update_cart"));
+
+        private IWebElement _checkOutButton => Driver.FindElement(By.CssSelector("body > div.page-wrapper > div:nth-child(5) > main > article > div > div > div.cart-collaterals > div > div.wc-proceed-to-checkout > div > a.checkout-button.button.alt.wc-forward"));
+
+        private IWebElement _radioButton1 => Driver.FindElement(By.Id("shipping_method_0_dpd_home_delivery9"));
+
+        private IWebElement _radioButton2 => Driver.FindElement(By.Id("shipping_method_0_local_pickup4"));
+
+        private IWebElement _radioButton3 => Driver.FindElement(By.Id("shipping_method_0_dpd_parcels3"));
+
+        private IWebElement _totalSumWithShipping => Driver.FindElement(By.CssSelector("#order_review > table > tfoot > tr.order-total > td > strong > span > bdi"));
+
         public ChaiChaiPage(IWebDriver webDriver) : base(webDriver) { }
+
 
         public ChaiChaiPage NavigateToDefaultPage()
         {
@@ -66,18 +77,62 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-        public ChaiChaiPage Wait()
+        public ChaiChaiPage WaitForBasketUpdate()
         {
-            Thread.Sleep(2000);
-           // Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+           WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+           wait.Until(d => d.FindElement(By.Id("count-cart-items")).Displayed);
+
             return this;
         }
 
-        public ChaiChaiPage ClickOnCookiesAcceptButton()
+        public ChaiChaiPage WaitForBasketUpdateMessageApears()
         {
-            _acceptButton.Click();
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.CssSelector("body > div.page-wrapper > div:nth-child(5) > main > article > div > div > div.woocommerce-notices-wrapper > div.woocommerce-message")).Displayed);
+
             return this;
         }
+
+        public ChaiChaiPage WaitForAddressTextApears()
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.CssSelector("#billing_address_1_field > label")).Displayed);
+
+            return this;
+        }
+
+        public ChaiChaiPage WaitForDpdTerminalApears()
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.Id("wc_shipping_dpd_parcels_terminal")).Displayed);
+
+            return this;
+        }
+
+        public ChaiChaiPage Wait()
+        {
+            Thread.Sleep(2000);
+
+            return this;
+        }
+
+
+        public ChaiChaiPage Wait55()
+        {
+             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(100000);
+            return this;
+        }
+
+
+        public ChaiChaiPage AcceptCookies()
+        {
+            Cookie newCookie = new Cookie("cookie_notice_accepted", "true",
+                "chaichai.lt", "/", DateTime.Now.AddDays(3));
+            Driver.Manage().Cookies.AddCookie(newCookie);
+            Driver.Navigate().Refresh();
+            return this;
+        }
+
 
         public ChaiChaiPage ClickOnSearchButton()
         {
@@ -92,8 +147,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-
-
         public ChaiChaiPage ClickEnterAfterValueInputInSerachBox()
         {
 
@@ -105,7 +158,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
          
         public ChaiChaiPage VerifySearchResults(string acctualResult) 
         {
-
             Assert.That(_chaiTitle.Text, Is.EqualTo(acctualResult),
             "Result is different");
 
@@ -151,7 +203,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-
         public ChaiChaiPage ClickOnNextPageButton()
         {
             _nextPageButton.Click();
@@ -176,7 +227,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-    
         public ChaiChaiPage ClickOnPurchaseBasketButton()
         {
             _purchaseBasket.Click();
@@ -216,8 +266,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         {
             foreach (IWebElement name in _titlesCollection)
             {
-                Assert.That(name.Text, Is.EqualTo(nameResult),
-                    $"Result is different. Should be {name.Text}, but was {nameResult}");
+                Assert.That(name.Text, Is.EqualTo(nameResult),"Result is not correct");
             }
 
             return this;
@@ -246,6 +295,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             _addButton.Click();
             return this;
         }
+
         public ChaiChaiPage ClickOnRemoveButtonInBasket()
         {
             _removeButton.Click();
@@ -258,8 +308,35 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
+        public ChaiChaiPage ClickOnCheckOutButton()
+        {
+            _checkOutButton.Click();
+            return this;
+        }
+
+        public ChaiChaiPage ClickOnRadioButton1()
+        {
+            _radioButton1.Click();
+            return this;
+        }
+
+        public ChaiChaiPage ClickOnRadioButton2()
+        {
+            _radioButton2.Click();
+            return this;
+        }
+
+        public ChaiChaiPage ClickOnRadioButton3()
+        {
+            _radioButton3.Click();
+            return this;
+        }
+
+        public ChaiChaiPage VerifyIfCostWithShippingSumIsAccurate(string acctualSum)
+        {
+            Assert.That(_totalSumWithShipping.Text, Is.EqualTo(acctualSum), "Result is wrong");
+            return this;
+        }
     }
-
-
 }
 

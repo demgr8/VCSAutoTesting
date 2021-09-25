@@ -26,10 +26,5 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
         }
 
-       // public void GetWait(int seconds = 10)
-       // {
-          //  WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
-           // wait.Until(e => e.FindElement(By.Id("cn-accept-cookie")).Displayed);
-       // }
     }
 }

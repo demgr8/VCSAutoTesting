@@ -21,7 +21,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         [SetUp]
         public static void SetUp()
         {
-            Driver = CustomDriver.GetChromeDriver();
+            Driver = CustomDriver.GetIncogdinotChromeDriver();
             _chaiChaiPage = new ChaiChaiPage(Driver);
          
         }

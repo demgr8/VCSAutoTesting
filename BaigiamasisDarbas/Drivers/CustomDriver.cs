@@ -21,7 +21,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas.Drivers
             return GetDriver(Browsers.FireFox);
         }
 
-        public static IWebDriver GetIncognitoChromeDriver()
+        public static IWebDriver GetIncogdinotChromeDriver()
         {
             return GetDriver(Browsers.IncognitoChrome);
         }
@@ -39,7 +39,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas.Drivers
                     webDriver = new FirefoxDriver();
                     break;
                 case Browsers.IncognitoChrome:
-                    webDriver = new ChromeDriver();
+                    webDriver = GetChromeWithIncognitoOption();
                     break;
                 default:
                     webDriver = new ChromeDriver();
@@ -52,5 +52,11 @@ namespace VCSTestingRuduo.BaigiamasisDarbas.Drivers
             return webDriver;
         }
 
+        private static IWebDriver GetChromeWithIncognitoOption()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("incognito");
+            return new ChromeDriver(options);
+        }
     }
 }
