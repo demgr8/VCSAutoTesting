@@ -65,6 +65,14 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         private IWebElement _totalSumWithShipping => Driver.FindElement(By.CssSelector("#order_review > table > tfoot > tr.order-total > td > strong > span > bdi"));
 
+        private IWebElement _productImage => Driver.FindElement(By.CssSelector(".post-181 .attachment-woocommerce_thumbnail"));
+
+        private IWebElement _productTitle => Driver.FindElement(By.CssSelector("#product-181 > div > div.pd-section__col.pd-section__col--img > h1"));
+
+        private IWebElement _productPriceField => Driver.FindElement(By.CssSelector("#product-181 > div > div.pd-section__col.pd-section__col--right > div.chai-meta-wrap > div.chai-meta-wrap__col.chai-meta-wrap__col--first > form > div.chai-carty-mac-cart__second > p > span > span.chai-price__price > span > bdi"));
+
+        private IWebElement _productStockField => Driver.FindElement(By.CssSelector(".stock"));
+        
         public ChaiChaiPage(IWebDriver webDriver) : base(webDriver) { }
 
 
@@ -77,7 +85,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-        public ChaiChaiPage WaitForBasketUpdate()
+        public ChaiChaiPage WaitForBasketIconUpdate()
         {
            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
            wait.Until(d => d.FindElement(By.Id("count-cart-items")).Displayed);
@@ -85,7 +93,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-        public ChaiChaiPage WaitForBasketUpdateMessageApears()
+        public ChaiChaiPage WaitForBasketUpdateCondition1()
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(d => d.FindElement(By.CssSelector("body > div.page-wrapper > div:nth-child(5) > main > article > div > div > div.woocommerce-notices-wrapper > div.woocommerce-message")).Displayed);
@@ -93,6 +101,13 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
+        public ChaiChaiPage WaitForBasketUpdateCondition2()
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.CssSelector(".product-subtotal bdi")).Text.Equals("€8.00"));
+            return this;
+        }
+        
         public ChaiChaiPage WaitForAddressTextApears()
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
@@ -109,20 +124,12 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             return this;
         }
 
-        public ChaiChaiPage Wait()
+        public ChaiChaiPage WaitForBasketLocalPickUpUpdate()
         {
-            Thread.Sleep(2000);
-
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.CssSelector("#order_review > table > tfoot > tr.order-total > td > strong > span > bdi")).Text.Equals("€4.00"));
             return this;
         }
-
-
-        public ChaiChaiPage Wait55()
-        {
-             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(100000);
-            return this;
-        }
-
 
         public ChaiChaiPage AcceptCookies()
         {
@@ -132,7 +139,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             Driver.Navigate().Refresh();
             return this;
         }
-
 
         public ChaiChaiPage ClickOnSearchButton()
         {
@@ -335,6 +341,42 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         public ChaiChaiPage VerifyIfCostWithShippingSumIsAccurate(string acctualSum)
         {
             Assert.That(_totalSumWithShipping.Text, Is.EqualTo(acctualSum), "Result is wrong");
+            return this;
+        }
+    
+        public ChaiChaiPage VerifyIfImageIsDisplayed()
+        {
+            bool imagePresent = _productImage.Displayed;
+            Assert.True(imagePresent, "No image exist");
+            return this;
+        }
+
+        public ChaiChaiPage VerifyIfProductTitleIsCorrect(string acctualResult)
+        {
+            Assert.That(_productTitle.Text, Is.EqualTo(acctualResult),
+            "Result is different");
+
+            return this;
+        }
+
+        public ChaiChaiPage VerifyIfProductPriceIsDisplayed()
+        {
+            bool pricePresent = _productPriceField.Displayed;
+            Assert.True(pricePresent, "No price field exist");
+            return this;
+        }
+
+        public ChaiChaiPage VerifyIfProductScockIsDisplayed()
+        {
+            bool stockPresent = _productStockField.Displayed;
+            Assert.True(stockPresent, "No stock field exist");
+            return this;
+        }
+
+        public ChaiChaiPage VerifyIfProductPurchaseButtonIsDisplayed()
+        {
+            bool purchaseButtonPresent = _productPurchaseButton.Displayed;
+            Assert.True(purchaseButtonPresent, "No purchase button exist");
             return this;
         }
     }

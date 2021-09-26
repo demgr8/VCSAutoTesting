@@ -39,6 +39,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ClickOnProductPurchaseButton()
                 .ClickOnPurchaseBasketButton()
                 .VerifyIfPurchaseBasetResultIsCorrect(input);
+               
         }
 
         [TestCase("Žalioji arbata")]
@@ -64,17 +65,17 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ClickOnMenuTabSaldumynai()
                 .ScrollDown()
                 .ClickOnProduct1ToPutInBacket()
-                .WaitForBasketUpdate()
+                .WaitForBasketIconUpdate()
                 .ClickOnPurchaseBasketButton()
                 .VerifyIfPurchaseBasketSumIsCorrect(input1)
                 .ClickOnAddButtonInBasket()
                 .ClickOnAddButtonInBasket()
                 .ClickOnUpdateButtonInBasket()
-                .WaitForBasketUpdateMessageApears()
+                .WaitForBasketUpdateCondition1()
                 .VerifyIfPurchaseBasketSumIsCorrect(input2)
                 .ClickOnRemoveButtonInBasket()
                 .ClickOnUpdateButtonInBasket()
-                .Wait()
+                .WaitForBasketUpdateCondition2()
                 .VerifyIfPurchaseBasketSumIsCorrect(input3);
         }
 
@@ -88,13 +89,12 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ClickOnMenuTabSaldumynai()
                 .ScrollDown()
                 .ClickOnProduct1ToPutInBacket()
-                .WaitForBasketUpdate()
+                .WaitForBasketIconUpdate()
                 .ClickOnPurchaseBasketButton()
                 .ClickOnCheckOutButton()
                 .ScrollDown()
                 .ClickOnRadioButton2()
-                .Wait()
-                .Wait()
+                .WaitForBasketLocalPickUpUpdate()
                 .VerifyIfCostWithShippingSumIsAccurate(input1)
                 .ClickOnRadioButton1()
                 .WaitForAddressTextApears()
@@ -102,6 +102,24 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ClickOnRadioButton3()
                 .WaitForDpdTerminalApears()
                 .VerifyIfCostWithShippingSumIsAccurate(input3);
+        }
+
+        [TestCase("Harissa")]
+        public void TestingIfAllImportantInfoIsDisplayed(string input)
+        {
+            _chaiChaiPage.NavigateToDefaultPage()
+               .AcceptCookies()
+               .ClickOnMenuTabProduktai()
+               .ClickOnMenuTabPrieskoniai()
+               .ScrollDownToElementNextButton()
+               .ClickOnNextPageButton()
+               .ScrollDownToProductPurchaseElement()
+               .ClickOnProduct()
+               .VerifyIfImageIsDisplayed()
+               .VerifyIfProductTitleIsCorrect("Harissa")
+               .VerifyIfProductPriceIsDisplayed()
+               .VerifyIfProductScockIsDisplayed()
+               .VerifyIfProductPurchaseButtonIsDisplayed();
         }
     }
 }
