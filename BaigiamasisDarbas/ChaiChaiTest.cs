@@ -38,11 +38,11 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ScrollDown()
                 .ClickOnProductPurchaseButton()
                 .ClickOnPurchaseBasketButton()
-                .VerifyIfPurchaseBasetResultIsCorrect(input);
-               
+                .VerifyIfPurchaseBasetResultIsCorrect(input); 
         }
 
         [TestCase("Žalioji arbata")]
+
         public void FilterTesting(string input)
         {
             _chaiChaiPage.NavigateToDefaultPage()
@@ -105,7 +105,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         }
 
         [TestCase("Harissa")]
-        public void TestingIfAllImportantInfoIsDisplayed(string input)
+        public void TestingIfImportantInfoIsDisplayed(string input)
         {
             _chaiChaiPage.NavigateToDefaultPage()
                .AcceptCookies()
@@ -116,7 +116,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                .ScrollDownToProductPurchaseElement()
                .ClickOnProduct()
                .VerifyIfImageIsDisplayed()
-               .VerifyIfProductTitleIsCorrect("Harissa")
+               .VerifyIfProductTitleIsCorrect(input)
                .VerifyIfProductPriceIsDisplayed()
                .VerifyIfProductScockIsDisplayed()
                .VerifyIfProductPurchaseButtonIsDisplayed();

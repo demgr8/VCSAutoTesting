@@ -27,7 +27,7 @@ namespace VCSTestingRuduo.Tools
           //  string screenshotPath = Path.Combine(screenshotFolder, screenshotName);
 
           //  screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
-        }
+        //}
 
    // }
-//}
+}

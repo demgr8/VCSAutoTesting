@@ -20,7 +20,7 @@ namespace VCSTestingRuduo.NamuDarbai.NamuDarbas4
                 ClickFirstSelectedButton().VerifyMiultiSelectValueContains("Texas");
         }
 
-        [Test]
+       // [Test]
         public void MultiDropDownGetAllSelectedTestTwoValues()
         {
             _multiSelectPage.NavigateToDefaultPage().ClickOnTwoMultiDropDownElementByValue("Ohio", "Florida").
@@ -34,7 +34,7 @@ namespace VCSTestingRuduo.NamuDarbai.NamuDarbas4
                 GetAllSelectedButton().VerifyMiultiSelectValueContains("Texas");
         }
 
-        [Test]
+       // [Test]
         public void MultiDropDownGetAllSelectedTestFourValues()
         {
             _multiSelectPage.NavigateToDefaultPage().ClickOnFourMultiDropDownElementByValue("California", "New Jersey", "Ohio", "Pennsylvania").

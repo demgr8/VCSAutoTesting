@@ -73,6 +73,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         private IWebElement _productStockField => Driver.FindElement(By.CssSelector(".stock"));
         
+
         public ChaiChaiPage(IWebDriver webDriver) : base(webDriver) { }
 
 
@@ -155,7 +156,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage ClickEnterAfterValueInputInSerachBox()
         {
-
             Actions action = new Actions(Driver);
             action.SendKeys(Keys.Enter);
             action.Build().Perform();
@@ -184,7 +184,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage ScrollDownToElementNextButton()
         {
-
             Actions action = new Actions(Driver);
             action.MoveToElement(_nextPageButton);
             action.Build().Perform();
@@ -193,7 +192,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage ScrollDownToProductPurchaseElement()
         {
-
             Actions action = new Actions(Driver);
             action.MoveToElement(_purchaseButton);
             action.Build().Perform();
@@ -202,7 +200,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage ScrollDown()
         {
-
             Actions action = new Actions(Driver);
             action.SendKeys(Keys.PageDown);
             action.Build().Perform();
@@ -255,7 +252,6 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage ScrollDownToElementZalioji()
         {
-
             Actions action = new Actions(Driver);
             action.MoveToElement(_zaliojiButton);
             action.Build().Perform();
@@ -381,4 +377,3 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         }
     }
 }
-

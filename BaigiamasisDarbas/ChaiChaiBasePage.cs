@@ -25,6 +25,5 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         {
             return new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
         }
-
     }
 }

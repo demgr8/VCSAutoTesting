@@ -78,6 +78,8 @@
     <Compile Include="KlasesDarbas\Paskaita5\BaseTest.cs" />
     <Compile Include="KlasesDarbas\Paskaita5\Drivers\Browsers.cs" />
     <Compile Include="KlasesDarbas\Paskaita5\Drivers\CustomDriver.cs" />
+    <Compile Include="KlasesDarbas\Paskaita6\SenukaiPage.cs" />
+    <Compile Include="KlasesDarbas\Paskaita6\SenukaiTest.cs" />
     <Compile Include="KlasesDarbas\SeleniumDemo.cs" />
     <Compile Include="KlasesDarbas\VartuTechnika.cs" />
     <Compile Include="NamuDarbai\NamuDarbas1.cs" />

@@ -11,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace VCSTestingRuduo.BaigiamasisDarbas.Tools
 {
-    public class ScreenShot
+    public class MyScreenShot
     {
-        public static void TakeScreenhot(IWebDriver driver)
+        public static void TakeScreenshot(IWebDriver driver)
         {
             Screenshot screenshot = driver.TakeScreenshot();
 
-            string projecttDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string screenshotDirectory = Path.GetFullPath(Path.Combine(projecttDirectory, @"..\..\"));
+            string projectDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string screenshotDirectory = Path.GetFullPath(Path.Combine(projectDirectory, @"..\..\"));
 
             string screenshotFolder = Path.Combine(screenshotDirectory, "Screenshot");
             Directory.CreateDirectory(screenshotFolder);
 
-            string screenshotName = $"{TestContext.CurrentContext.Test.Name} {DateTime.Now:HH_mm_ss}.png";
+            string screenshotName = $"{TestContext.CurrentContext.Test.MethodName}_{DateTime.Now:HH_mm_ss}.png";
             string screenshotPath = Path.Combine(screenshotFolder, screenshotName);
 
             screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);

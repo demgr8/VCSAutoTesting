@@ -21,9 +21,8 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         [SetUp]
         public static void SetUp()
         {
-            Driver = CustomDriver.GetIncogdinotChromeDriver();
+            Driver = CustomDriver.GetChromeDriver();
             _chaiChaiPage = new ChaiChaiPage(Driver);
-         
         }
 
         [TearDown]
@@ -31,14 +30,14 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         {
             if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
             {
-                ScreenShot.TakeScreenhot(Driver);
+                MyScreenShot.TakeScreenshot(Driver);
             }
         }
 
-       // [TearDown]
-       // public static void OneTimeTearDown()
-       // {
-        //    Driver.Close();
-        //}
+        [OneTimeTearDown]
+        public static void OneTimeTearDown()
+        {
+            Driver.Close();
+        }
     }
 }

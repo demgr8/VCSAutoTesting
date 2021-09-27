@@ -26,15 +26,15 @@ namespace VCSTestingRuduo.NamuDarbai.NamuDarbas4
 
         }
 
-        [TearDown]
+      //  [TearDown]
 
-        public static void TearDown()
-        {
-            if(TestContext.CurrentContext.Result.Outcome != ResultState.Success)
-            {
-                MyScreenshot.TakeScreenhot(Driver);
-            }
-        }
+       // public static void TearDown()
+        //{
+          //  if(TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+          //  {
+             //   MyScreenshot.TakeScreenhot(Driver);
+           // }
+       // }
 
         [OneTimeTearDown]
         public static void OneTimeTearDown()
