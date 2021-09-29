@@ -21,8 +21,8 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ClickEnterAfterValueInputInSerachBox()
                 .VerifySearchResults(input);
         }
-    
-         [TestCase("2")]
+
+        [TestCase("2")]
 
         public void TestingIfItemsQuantityIsCorrectByClickingPurchaseButtonsInDifferentPlace(string input)
         {
@@ -38,7 +38,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
                 .ScrollDown()
                 .ClickOnProductPurchaseButton()
                 .ClickOnPurchaseBasketButton()
-                .VerifyIfPurchaseBasetResultIsCorrect(input); 
+                .VerifyIfPurchaseBasetResultIsCorrect(input);
         }
 
         [TestCase("Žalioji arbata")]

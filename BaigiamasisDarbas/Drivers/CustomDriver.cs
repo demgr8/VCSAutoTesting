@@ -48,7 +48,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas.Drivers
 
             webDriver.Manage().Window.Maximize();
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-           
+
             return webDriver;
         }
 

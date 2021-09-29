@@ -40,13 +40,13 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         private IWebElement _menuTabArbata => Driver.FindElement(By.CssSelector("body > div.page-wrapper > aside > nav > ul > li:nth-child(2) > a"));
 
         private IWebElement _zaliojiButton => Driver.FindElement(By.CssSelector("#woocommerce_layered_nav-10 > ul > li:nth-child(11) > a"));
-        
+
         private IReadOnlyCollection<IWebElement> _titlesCollection => Driver.FindElements(By.ClassName("chai-title-p__cat"));
 
         private IWebElement _menuTabSaldumynai => Driver.FindElement(By.CssSelector("body > div.page-wrapper > aside > nav > ul > li:nth-child(4) > a > span > svg"));
 
         private IWebElement _product1ToBacket => Driver.FindElement(By.CssSelector(".post-543 .chai-add-to-cart__btn"));
-        
+
         private IWebElement _sum => Driver.FindElement(By.CssSelector("strong bdi"));
 
         private IWebElement _addButton => Driver.FindElement(By.CssSelector(".woocommerce-cart-form__cart-item:nth-child(1) .js-qa-plus"));
@@ -72,7 +72,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         private IWebElement _productPriceField => Driver.FindElement(By.CssSelector("#product-181 > div > div.pd-section__col.pd-section__col--right > div.chai-meta-wrap > div.chai-meta-wrap__col.chai-meta-wrap__col--first > form > div.chai-carty-mac-cart__second > p > span > span.chai-price__price > span > bdi"));
 
         private IWebElement _productStockField => Driver.FindElement(By.CssSelector(".stock"));
-        
+
 
         public ChaiChaiPage(IWebDriver webDriver) : base(webDriver) { }
 
@@ -88,8 +88,8 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage WaitForBasketIconUpdate()
         {
-           WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-           wait.Until(d => d.FindElement(By.Id("count-cart-items")).Displayed);
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.Id("count-cart-items")).Displayed);
 
             return this;
         }
@@ -108,7 +108,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             wait.Until(d => d.FindElement(By.CssSelector(".product-subtotal bdi")).Text.Equals("€8.00"));
             return this;
         }
-        
+
         public ChaiChaiPage WaitForAddressTextApears()
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
@@ -161,8 +161,8 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             action.Build().Perform();
             return this;
         }
-         
-        public ChaiChaiPage VerifySearchResults(string acctualResult) 
+
+        public ChaiChaiPage VerifySearchResults(string acctualResult)
         {
             Assert.That(_chaiTitle.Text, Is.EqualTo(acctualResult),
             "Result is different");
@@ -235,7 +235,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             _purchaseBasket.Click();
             return this;
         }
-    
+
         public ChaiChaiPage VerifyIfPurchaseBasetResultIsCorrect(string acctualquantity)
         {
 
@@ -268,7 +268,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
         {
             foreach (IWebElement name in _titlesCollection)
             {
-                Assert.That(name.Text, Is.EqualTo(nameResult),"Result is not correct");
+                Assert.That(name.Text, Is.EqualTo(nameResult), "Result is not correct");
             }
 
             return this;
@@ -339,7 +339,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             Assert.That(_totalSumWithShipping.Text, Is.EqualTo(acctualSum), "Result is wrong");
             return this;
         }
-    
+
         public ChaiChaiPage VerifyIfImageIsDisplayed()
         {
             bool imagePresent = _productImage.Displayed;
