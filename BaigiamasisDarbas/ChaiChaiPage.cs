@@ -88,47 +88,41 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
 
         public ChaiChaiPage WaitForBasketIconUpdate()
         {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.Id("count-cart-items")).Displayed);
+            GetWait().Until(d => d.FindElement(By.Id("count-cart-items")).Displayed);
 
             return this;
         }
 
         public ChaiChaiPage WaitForBasketUpdateCondition1()
         {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.CssSelector("body > div.page-wrapper > div:nth-child(5) > main > article > div > div > div.woocommerce-notices-wrapper > div.woocommerce-message")).Displayed);
+            GetWait().Until(d => d.FindElement(By.CssSelector("body > div.page-wrapper > div:nth-child(5) > main > article > div > div > div.woocommerce-notices-wrapper > div.woocommerce-message")).Displayed);
 
             return this;
         }
 
         public ChaiChaiPage WaitForBasketUpdateCondition2()
         {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.CssSelector(".product-subtotal bdi")).Text.Equals("€8.00"));
+            GetWait().Until(d => d.FindElement(By.CssSelector(".product-subtotal bdi")).Text.Equals("€8.00"));
             return this;
         }
 
         public ChaiChaiPage WaitForAddressTextApears()
         {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.CssSelector("#billing_address_1_field > label")).Displayed);
+            GetWait().Until(d => d.FindElement(By.CssSelector("#billing_address_1_field > label")).Displayed);
 
             return this;
         }
 
         public ChaiChaiPage WaitForDpdTerminalApears()
         {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.Id("wc_shipping_dpd_parcels_terminal")).Displayed);
+            GetWait().Until(d => d.FindElement(By.Id("wc_shipping_dpd_parcels_terminal")).Displayed);
 
             return this;
         }
 
         public ChaiChaiPage WaitForBasketLocalPickUpUpdate()
         {
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.CssSelector("#order_review > table > tfoot > tr.order-total > td > strong > span > bdi")).Text.Equals("€4.00"));
+            GetWait().Until(d => d.FindElement(By.CssSelector("#order_review > table > tfoot > tr.order-total > td > strong > span > bdi")).Text.Equals("€4.00"));
             return this;
         }
 

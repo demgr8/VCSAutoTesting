@@ -21,7 +21,7 @@ namespace VCSTestingRuduo.BaigiamasisDarbas
             Driver.Quit();
         }
 
-        public WebDriverWait GetWait(int seconds = 5)
+        public WebDriverWait GetWait(int seconds = 10)
         {
             return new WebDriverWait(Driver, TimeSpan.FromSeconds(seconds));
         }
